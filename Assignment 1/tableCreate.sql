@@ -24,7 +24,7 @@ create table product_master (
     cost_price decimal(8,2) not null check (cost_price > 0),
     constraint product_check check (product_no like 'P%')
 );
- 
+
 create table salesman_master (
     salesman_no varchar(6) primary key check (salesman_no like 'S%'),
     salesman_name varchar(20) not null,
@@ -41,14 +41,14 @@ create table salesman_master (
  
 create table sales_order (
     order_no varchar(6) primary key check (order_no like 'O%'),
-    client_no varchar(20) references client_master(client_no),
+    client_no varchar(6) references client_master(client_no),
     order_date date not null,
     dely_addr varchar(30),
     salesman_no varchar(6) references salesman_master(salesman_no),
     dely_type char(1) default 'F',
     bill_yn char(1),
-    dely_date date check (dely_date > order_date),
-    order_status enum ('In Process', 'Fulfilled', 'BackOrder', 'Cancelled') not null,
+    dely_date date check (dely_date >= order_date),
+    order_status varchar(10) check (order_status in ('In Process', 'Fulfilled', 'BackOrder', 'Cancelled'))
 );
 
 create table sales_order_details (
