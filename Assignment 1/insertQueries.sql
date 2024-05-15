@@ -1,0 +1,1 @@
+insert into client_master values()
