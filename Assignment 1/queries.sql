@@ -20,4 +20,4 @@ from
     join sales_order so on sod.order_no = so.order_no
     join client_master cm on so.client_no = cm.client_no
 where
-    cm.name in ('Raj', 'Basu');
+    cm.name in ('Ravi', 'Basu');
