@@ -11,7 +11,7 @@ This is simply a SQL revision.
 ### Queries
 - List the product number, description, and the corresponding selling price for the products, with the selling price lying between Rs. 500 and Rs. 750.
 - Display the order numbers and order dates for all the orders placed in the months of May and June.
-- List the product number, description, and aggregate quantities for the orders placed by ‘Raj’ and ‘Basu.’
+- List the product number, description, and aggregate quantities for the orders placed by ‘Ravi’ and ‘Basu.’
 
 ## Resources
 
