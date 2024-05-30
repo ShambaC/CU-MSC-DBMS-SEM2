@@ -17,6 +17,8 @@ Write a function called "multiply" that accepts two parameters: a callback funct
 ### Question 4
 Consider the following code snippet:
 
+![image](https://github.com/ShambaC/CU-MSC-DBMS-SEM2/assets/38806897/feebf3ff-e1c5-4faa-9509-24dab25a6e00)
+
 Fill in the empty spaces for Tasks 1 and 2 in the code by utilizing the relevant ES6+ features. Make sure Task 2 uses template literals and Task 1 uses the syntax for the arrow function. Here, a doubled value means if the number is 2, then the output will be 4.
 
 Instructions:
