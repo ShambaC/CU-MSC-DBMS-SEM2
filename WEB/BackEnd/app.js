@@ -20,7 +20,6 @@ app.listen(5000, () => {
 });
 
 app.post('/insert', (req, res) => {
-    console.log(req.body);
     const { empID, empName, empGender, empPosition, doj, deptID, sal, comm} = req.body;
 
     db.beginTransaction((err) => {
@@ -29,7 +28,6 @@ app.post('/insert', (req, res) => {
         // check if dept exists
         const checkDeptID = "select deptID from dept where deptID = ?";
         db.query(checkDeptID, [deptID], (err, result) => {
-            console.log(result);
 
             if (err) {
                 return db.rollback(() => {
@@ -45,7 +43,6 @@ app.post('/insert', (req, res) => {
 
             const sqlInsertEmp = "insert into employee (empID, empName, empGender, empPosition, doj, deptID) values (?, ?, ?, ?, ?, ?)";
             db.query(sqlInsertEmp, [empID, empName, empGender, empPosition, doj, deptID], (err, result) => {
-                console.log(result);
 
                 if (err) {
                     return db.rollback(() => {
@@ -53,9 +50,19 @@ app.post('/insert', (req, res) => {
                     });
                 }
 
-                const sqlInsertSal = "insert into salary (empID, salAmt, commAmt) values (?, ?, ?)";
-                db.query(sqlInsertSal, [empID, sal, comm], (err, result) => {
-                    console.log(result);
+                let da = 0;
+                if (empPosition == "sr_sup") {
+                    da = 25;
+                }
+                else if (empPosition == "jr_sup") {
+                    da = 22;
+                }
+                else {
+                    da = 28;
+                }
+
+                const sqlInsertSal = "insert into salary (empID, salAmt, commAmt, da) values (?, ?, ?, ?)";
+                db.query(sqlInsertSal, [empID, sal, comm, da], (err, result) => {
 
                     if (err) {
                         return db.rollback(() => {
@@ -75,5 +82,16 @@ app.post('/insert', (req, res) => {
                 });
             });
         });
+    });
+});
+
+
+app.get('/getEmp', (req, res) => {
+    const sqlGetEmp = "select employee.*, salary.salAmt, salary.commAmt, dept.deptName from employee join dept on employee.deptID = dept.deptID join salary on employee.empID = salary.empID";
+
+    db.query(sqlGetEmp, [], (err, result) => {
+        if (err)    throw err;
+
+        res.json(result);
     });
 });
