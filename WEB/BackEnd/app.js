@@ -85,6 +85,23 @@ app.post('/insert', (req, res) => {
     });
 });
 
+app.get('/check', (req, res) => {
+    const empID = req.query.empID;
+
+    const sqlQuery = "select e.empID, e.empName, e.empGender, e.empPosition, e.doj, d.deptName, s.salAmt, s.commAmt, s.da from employee e, dept d, salary s where e.empID = ? and d.deptID = e.deptID and s.empID = e.empID;";
+    
+    db.query(sqlQuery, [empID], (err, result) => {
+        if (err)    throw err;
+
+        if (result.length === 0) {
+            res.status(404).send("Employee not found");
+        }
+        else {
+            res.status(200).json(result);
+        }
+    });
+});
+
 
 app.get('/getEmp', (req, res) => {
     const sqlGetEmp = "select employee.*, salary.salAmt, salary.commAmt, dept.deptName from employee join dept on employee.deptID = dept.deptID join salary on employee.empID = salary.empID";
