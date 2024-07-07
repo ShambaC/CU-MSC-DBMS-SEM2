@@ -20,7 +20,7 @@ function search() {
                 const emp = data[0];
                 const detailsDiv = document.getElementById("details-div");
 
-                const totalSalary = emp.salAmt + emp.commAmt + Math.trunc(emp.salAmt * emp.da / 100);
+                const totalSalary = emp.salAmt + Math.trunc(emp.salAmt * emp.da / 100);
 
                 detailsDiv.innerHTML += `
                     <h1 class="text-2xl">

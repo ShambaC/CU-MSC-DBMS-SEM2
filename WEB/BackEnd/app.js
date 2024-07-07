@@ -51,10 +51,10 @@ app.post('/insert', (req, res) => {
                 }
 
                 let da = 0;
-                if (empPosition == "sr_sup") {
+                if (empPosition == "Sr. Supervisor") {
                     da = 25;
                 }
-                else if (empPosition == "jr_sup") {
+                else if (empPosition == "Jr. Supervisor") {
                     da = 22;
                 }
                 else {
