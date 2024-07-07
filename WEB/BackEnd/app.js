@@ -102,6 +102,36 @@ app.get('/check', (req, res) => {
     });
 });
 
+app.post('/delete', (req, res) => {
+    const { empID } = req.body;
+
+    const checkQuery = "select empID from employee where empID = ?";
+    db.query(checkQuery, [empID], (err, result) => {
+        if (err) throw err;
+
+        if (result.length === 0) {
+            res.status(404).send("Employee not found");
+        }
+        else {
+            const deleteQuery = `delete from employee where empID = ?; delete from salary where empID = ?`;
+            db.query(deleteQuery, [empID, empID], (err, result) => {
+                if (err) {
+                    return db.rollback(() => {
+                        throw err;
+                    });
+                }
+
+                if (result[0].affectedRows > 0 && result[1].affectedRows > 0) {
+                    res.sendStatus(200);
+                }
+                else {
+                    res.sendStatus(500);
+                }
+            })
+        }
+    });
+});
+
 
 app.get('/getEmp', (req, res) => {
     const sqlGetEmp = "select employee.*, salary.salAmt, salary.commAmt, dept.deptName from employee join dept on employee.deptID = dept.deptID join salary on employee.empID = salary.empID";
