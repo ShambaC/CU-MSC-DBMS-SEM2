@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    padding: 5.5%;
+    height: 70vh;
+    background-image: url(actorBg.jpg);
+    background-repeat: no-repeat;
+    font-family: "Baskervville SC", serif;
+    font-size: large;
+    color: white;
+}
+
+h2{
+    font-weight: 800;
+}
+
+form{
+    font-weight: 650;
+}
+
+option, label, input{
+    font-weight: 650;
+}
+
+.submit-reset{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+input[type = "submit"],
+input[type = "reset"]{
+    background-color: azure;
+    color: black;
+    font-weight: 650;
+    box-shadow: 5px 5px 4px black;
+}
+
+input[type = "submit"]:hover{
+    color: black;
+}
+
+.conditional-inputs {
+    display: none;
+}
+
+.conditional-inputs.active {
+    display: block;
+}

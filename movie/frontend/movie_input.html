@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Movie Details Form</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<style>
+  body {
+    background-image: url('movie.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
+    font-size: 18px;
+    color: rgb(8, 88, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+    margin-top: 15px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  input[type="date"],
+  select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #0c0c0c;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+
+  .btn-next {
+    background-color: rgb(4, 136, 85);
+    color: yellow;
+    padding: 10px 20px;
+    border: 1px solid black;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex; 
+    margin: 5px; 
+    width: auto;
+  }
+
+  .btn-next:hover {
+    background-color: rgb(131, 75, 235);
+  }
+
+  .conditional-inputs {
+    display: none;
+  }
+
+  .conditional-inputs.active {
+    display: block;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h2>Enter Movie Details</h2>
+    <form id="movieForm">
+      <div class="form-group">
+        <label for="movieName">Movie Name:</label>
+        <input type="text" id="movieName" name="movieName" placeholder="Movie name" required>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col">
+            <label for="releaseYear">Year of Release:</label>
+            <input type="date" id="releaseYear" name="releaseYear" required>
+          </div>
+          <div class="col">
+            <label for="movieDuration">Duration (minutes):</label>
+            <input type="number" id="movieDuration" name="movieDuration" placeholder="Movie duration (in minutes)" required>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="plotoutline">Plot Outline:</label>
+        <input type="text" id="plot" name="plotoutline" placeholder="Outline of plot" required>
+      </div>
+      <div class="form-group">
+        <label for="productioncompany">Production Company:</label>
+        <select id="productioncompany" name="productioncompany" onchange="toggleOthersInput(this, 'otherProductionCompany')" class="form-control">
+          <option value="yash raj films">Yash Raj Films</option>
+          <option value="warner bros">Warner Bros</option>
+          <option value="dharma productions">Dharma Productions</option>
+          <option value="universal pictures">Universal Pictures</option>
+          <option value="red chillies entertainment">Red Chillies Entertainment</option>
+          <option value="marvel studios">Marvel Studios</option>
+          <option value="legendary pictures">Legendary Pictures</option>
+          <option value="others">Others, please specify</option>
+        </select>
+      </div>
+
+      <div class="form-group conditional-inputs" id="otherProductionCompany">
+        <div class="row">
+          <div class="col">
+            <label for="companyName">Production Company Name:</label>
+            <input type="text" id="companyName" name="companyName" placeholder="Company Name">
+          </div>
+          <div class="col">
+            <label for="companyAddress">Production Company Address:</label>
+            <input type="text" id="companyAddress" name="companyAddress" placeholder="Company Address">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="genre">Genre:</label>
+        <select id="genre" name="genre" onchange="toggleOthersInput(this, 'otherGenre')" class="form-control">
+          <option value="romance">Romance</option>
+          <option value="action">Action</option>
+          <option value="family drama">Family Drama</option>
+          <option value="social drama">Social Drama</option>
+          <option value="science fiction">Sci-Fi</option>
+          <option value="thriller">Thriller</option>
+          <option value="others">Others, please specify</option>
+        </select>
+      </div>
+
+      <div class="form-group conditional-inputs" id="otherGenre">
+        <label for="otherGenre">Other Genre:</label>
+        <input type="text" id="otherGenre" name="otherGenre" placeholder="Genre">
+      </div>
+
+      <br>
+      <a href="actor-input.html" class="btn btn-primary btn-next">Next Page</a>
+    </form>
+  </div>
+
+  <script>
+    function toggleOthersInput(select, targetId) {
+      var targetElement = document.getElementById(targetId);
+      if (select.value === "others") {
+        targetElement.classList.add("active");
+      } else {
+        targetElement.classList.remove("active");
+      }
+    }
+  </script>
+</body>
+</html>
