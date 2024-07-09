@@ -47,15 +47,8 @@
             </div>
             <br>
             <div class="quotesOrNot">
-                <label for="quotes">Quotes ?</label>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="yes" value="yes">
-                    <label class="form-check-label" for="inlineRadio1">Yes</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="no" value="no">
-                    <label class="form-check-label" for="inlineRadio2">No</label>
-                </div>
+                <label for="quoteCheck">Quotes ?</label>
+                <input class="form-check-input" type="checkbox" name="quoteCheck" id="quoteCheck">
                 <div id="quoteInput" style="display: none; margin-top: 10px;">
                     <input type="text" class="form-control" id="quoteText" placeholder="Enter quote">
                 </div>
@@ -85,18 +78,16 @@
                 });
             });
 
-            const yesRadio = document.getElementById('yes');
-            const noRadio = document.getElementById('no');
+            const quoteCheck = document.getElementById('quoteCheck');
             const quoteInput = document.getElementById('quoteInput');
             const selectElement = document.getElementById('acted_by');
             const selectWrapper = selectElement.closest('.select-wrapper');
 
             function toggleQuoteInput() {
-                quoteInput.style.display = yesRadio.checked ? 'block' : 'none';
+                quoteInput.style.display = quoteCheck.checked ? 'block' : 'none';
             }
         
-            yesRadio.addEventListener('change', toggleQuoteInput);
-            noRadio.addEventListener('change', toggleQuoteInput);
+            quoteCheck.addEventListener('change', toggleQuoteInput);
     </script>
 </body>
 </html>
