@@ -1,0 +1,60 @@
+body {
+    background-image: url('../assets/movie.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
+    font-size: 18px;
+    color: rgb(8, 88, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  input[type="date"],
+  select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #0c0c0c;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+
+  .btn-next {
+    background-color: rgb(4, 136, 85);
+    color: yellow;
+    padding: 10px 20px;
+    border: 1px solid black;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex; 
+    margin: 5px; 
+    width: auto;
+  }
+
+  .btn-next:hover {
+    background-color: rgb(131, 75, 235);
+  }
+
+  .conditional-inputs {
+    display: none;
+  }
+
+.conditional-inputs.active {
+  display: block;
+}

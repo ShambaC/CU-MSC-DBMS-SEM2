@@ -7,7 +7,7 @@
 body{
     padding: 7%;
     height: 70vh;
-    background-image: url(actorBg.jpg);
+    background-image: url(../assets/actorBg.jpg);
     background-repeat: no-repeat;
     font-family: "Baskervville SC", serif;
     font-size: large;

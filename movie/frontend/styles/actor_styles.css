@@ -7,7 +7,7 @@
 body{
     padding: 5.5%;
     height: 70vh;
-    background-image: url(actorBg.jpg);
+    background-image: url(../assets/actorBg.jpg);
     background-repeat: no-repeat;
     font-family: "Baskervville SC", serif;
     font-size: large;
@@ -38,10 +38,6 @@ input[type = "reset"]{
     font-weight: 650;
     box-shadow: 5px 5px 4px black;
 }
-
-/* input[type = "submit"]:hover{
-    color: black;
-} */
 
 .conditional-inputs {
     display: none;
