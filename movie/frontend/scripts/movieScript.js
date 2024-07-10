@@ -1,11 +1,7 @@
-const genreDropdown = document.getElementById('genre');
-genreDropdown.addEventListener('change', toggleOthersInput(genreDropdown, 'otherGenre'));
-
-function toggleOthersInput(select, targetId) {
-    var targetElement = document.getElementById(targetId);
-    if (select.value === "others") {
-      targetElement.classList.add("active");
-    } else {
-      targetElement.classList.remove("active");
-    }
-  }
+$(document).ready(function() {
+  $('select[multiple]').multiselect({
+      templates: {
+          button: '<button type="button" class="multiselect dropdown-toggle btn btn-outline-dark" data-bs-toggle="dropdown" aria-expanded="false"><span class="multiselect-selected-text"></span></button>',
+      },
+  });
+});

@@ -13,7 +13,7 @@
   <body>
     <div class="container">
       <h2>Enter Movie Details</h2>
-      <form id="movieForm">
+      <form id="movieForm" method="post" action="/movie">
         <div class="form-group">
           <label for="movieName">Movie Name:</label>
           <input type="text" id="movieName" name="movieName" placeholder="Movie name" required>
@@ -32,19 +32,11 @@
         </div>
         <div class="form-group">
           <label for="plotoutline">Plot Outline:</label>
-          <input type="text" id="plot" name="plotoutline" placeholder="Outline of plot" required>
+          <textarea id="plot" name="plotoutline" class="form-control border border-black" placeholder="Outline of plot" required></textarea>
         </div>
         <div class="form-group">
           <label for="productioncompany">Production Company:</label>
           <select id="productioncompany" name="productioncompany" onchange="toggleOthersInput(this, 'otherProductionCompany')" class="form-control">
-            <option value="yash raj films">Yash Raj Films</option>
-            <option value="warner bros">Warner Bros</option>
-            <option value="dharma productions">Dharma Productions</option>
-            <option value="universal pictures">Universal Pictures</option>
-            <option value="red chillies entertainment">Red Chillies Entertainment</option>
-            <option value="marvel studios">Marvel Studios</option>
-            <option value="legendary pictures">Legendary Pictures</option>
-            <option value="others">Others, please specify</option>
           </select>
         </div>
 
@@ -63,7 +55,7 @@
 
         <div class="form-group">
           <label for="genre">Genre:</label>
-          <select id="genre" name="genre" class="form-control">
+          <select id="genre" name="genre" class="form-control" multiple="multiple">
             <option value="romance">Romance</option>
             <option value="action">Action</option>
             <option value="family drama">Family Drama</option>
@@ -80,7 +72,7 @@
         </div>
 
         <br>
-        <a href="actor-input.html" class="btn btn-primary btn-next">Next Page</a>
+        <input type="submit" value="Submit" class="btn btn-outline-dark">
       </form>
     </div>
 

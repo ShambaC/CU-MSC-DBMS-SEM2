@@ -8,8 +8,6 @@ $(document).ready(function() {
 
 const quoteCheck = document.getElementById('quoteCheck');
 const quoteInput = document.getElementById('quoteInput');
-const selectElement = document.getElementById('acted_by');
-const selectWrapper = selectElement.closest('.select-wrapper');
 
 function toggleQuoteInput() {
     quoteInput.style.display = quoteCheck.checked ? 'block' : 'none';

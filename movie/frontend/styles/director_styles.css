@@ -38,15 +38,3 @@ input[type = "reset"]{
     font-weight: 650;
     box-shadow: 5px 5px 4px black;
 }
-
-input[type = "submit"]:hover{
-    color: black;
-}
-
-.conditional-inputs {
-    display: none;
-}
-
-.conditional-inputs.active {
-    display: block;
-}
