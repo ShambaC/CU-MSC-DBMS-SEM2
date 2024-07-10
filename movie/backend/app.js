@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/movies', (req, res) => {
-	const movieQuery = "select title, year from movie";
+	const movieQuery = "select title, year from movies";
 
 	db.query(movieQuery, [], (err, result) => {
 		if (err)	throw err;
@@ -41,6 +41,16 @@ app.get('/productions', (req, res) => {
 
 		res.status(200).json(result);
 	});
+});
+
+app.get('/genres', (req, res) => {
+	const genreQuery = "select * from genre";
+
+	db.query(genreQuery, [], (err, result) => {
+		if (err) throw err;
+
+		res.status(200).json(result);
+	})
 });
 
 app.post('/insertActor', urlencodedParser, (req, res) => {

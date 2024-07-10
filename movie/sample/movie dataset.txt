@@ -1,0 +1,88 @@
+
+INSERT INTO production (pName, address) VALUES
+('Yash Raj Films', 'Mumbai, India'),
+('Warner Bros. Pictures', 'Los Angeles, USA'),
+('Dharma Productions', 'Mumbai, India'),
+('Universal Pictures', 'Universal City, USA'),
+('Red Chillies Entertainment', 'Mumbai, India'),
+('Marvel Studios', 'Burbank, USA'),
+('Legendary Pictures', 'Burbank, USA');
+
+
+
+INSERT INTO movie (title, year, duration, plot_outline, pName) VALUES
+('Dilwale Dulhania Le Jayenge', 1995, 189, 'A young man and woman - both of Indian descent but born and raised in Britain - fall in love during a trip to Europe.', 'Yash Raj Films'),
+('Inception', 2010, 148, 'A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.', 'Warner Bros. Pictures, Legendary Pictures'),
+('Kabhi Khushi Kabhi Gham...', 2001, 210, 'Yashvardhan Raichand lives a very wealthy lifestyle along with his wife, Nandini, and two sons, Rahul and Rohan.', 'Dharma Productions'),
+('Jurassic Park', 1993, 127, 'During a preview tour, a theme park suffers a major power breakdown that allows its cloned dinosaur exhibits to run amok.', 'Universal Pictures'),
+('Dunki', 2023, 161, 'The narrative follows the journey of individuals who, driven by dreams of a better future, resort to this perilous and illicit route. The emotional and physical struggles faced by these immigrants.', 'Red Chillies Entertainment'),
+('Baishe Srabon', 2011, 134, 'The film revolves around a serial killer who murders women in Kolkata and the detective who\'s on his trail.', 'SVF Entertainment');
+
+
+
+INSERT INTO director (dName, dDOB) VALUES
+('Aditya Chopra', '1971-05-21'),
+('Christopher Nolan', '1970-07-30'),
+('Karan Johar', '1972-05-25'),
+('Steven Spielberg', '1946-12-18'),
+('Rajkumar Hirani', '1962-11-20'),
+('Srijit Mukherji', '1977-09-23');
+
+
+
+INSERT INTO genre (genreName) VALUES
+('Romance'),
+('Action'),
+('Family Drama'),
+('Science Fiction'),
+('Social Drama'),
+('Thriller');
+
+
+
+INSERT INTO movie_genre (title, year, genreName) VALUES
+('Dilwale Dulhania Le Jayenge', 1995, 'Romance'),
+('Inception', 2010, 'Action'),
+('Kabhi Khushi Kabhie Gham...', 2001, 'Family Drama'),
+('Jurassic Park', 1993, 'Science Fiction'),
+('Dunki', 2023, 'Social Drama'),
+('Baishe Srabon', 2011, 'Thriller');
+
+
+
+INSERT INTO actor (aName, aDOB) VALUES
+('Shah Rukh Khan', '1965-11-02'),
+('Amitabh Bachchan', '1942-10-11'),
+('Tom Hanks', '1956-07-09'),
+('Leonardo DiCaprio', '1974-11-11'),
+('Tapsee Pannu', '1987-08-01');
+
+
+
+INSERT INTO acted_by (title, year, aName, aDOB, role) VALUES
+('Dilwale Dulhania Le Jayenge', 1995, 'Shah Rukh Khan', '1965-11-02', 'Raj Malhotra'),
+('Kabhi Khushi Kabhie Gham...', 2001, 'Amitabh Bachchan', '1942-10-11', 'Yashvardhan Raichand'),
+('Inception', 2010, 'Leonardo DiCaprio', '1974-11-11', 'Cobb'),
+('Jurassic Park', 1993, 'Sam Neill', '1947-09-14', 'Dr. Alan Grant'),
+('Dunki', 2023, 'Shah Rukh Khan', '1965-11-02', 'Hardayal Singh Dhillon'),
+('Baishe Srabon', 2011, 'Srijit Mukherji', '1977-09-23', 'Surjo Sinha');
+
+
+
+INSERT INTO directed_by (title, year, dName, dDOB) VALUES
+('Dilwale Dulhania Le Jayenge', 1995, 'Aditya Chopra', '1971-05-21'),
+('Inception', 2010, 'Christopher Nolan', '1970-07-30'),
+('Kabhi Khushi Kabhie Gham...', 2001, 'Karan Johar', '1972-05-25'),
+('Jurassic Park', 1993, 'Steven Spielberg', '1946-12-18'),
+('Dunki', 2023, 'Rajkumar Hirani', '1962-11-20'),
+('Baishe Srabon', 2011, 'Srijit Mukherji', '1977-09-23');
+
+
+
+INSERT INTO quote (qText, aName, aDOB, title, year) VALUES
+('Bade bade deshon mein aisi chhoti chhoti baatein hoti rehti hai, Senorita.', 'Shah Rukh Khan', '1965-11-02', 'Dilwale Dulhania Le Jayenge', 1995),
+('Don ko pakadna mushkil hi nahin, namumkin hai.', 'Amitabh Bachchan', '1942-10-11', 'Don', 1978),
+('Your mind is the scene of the crime.', 'Leonardo DiCaprio', '1974-11-11', 'Inception', 2010),
+('Life finds a way.', 'Jeff Goldblum', '1952-10-22', 'Jurassic Park', 1993),
+('Yeh kahaani maine shuru ki thi toh khatam bhi main hi karunga', 'Shah Rukh Khan', '1965-11-02', 'Dunki', 2023),
+('Onek kotha bolar chhilo, bolechhilam. Parle jodi, tumi hote ele na.', 'Srijit Mukherji', '1977-09-23', 'Baishe Srabon', 2011);
