@@ -47,6 +47,37 @@ app.post('/insertActor', urlencodedParser, (req, res) => {
     
 });
 
+app.post('/insertMovies', urlencodedParser, (req, res) => {
+
+});
+
+app.post('/insertDirector', urlencodedParser, (req, res) => {
+	const { movieName, releaseYear, movieDuration, plotoutline, productioncompany, genre } = req.body;
+
+	db.beginTransaction((err) => {
+		if (err) throw err;
+
+		const insertQueryA = "insert into movie values (?, ?, ?, ?, ?)";
+		db.query(insertQueryA, [movieName, releaseYear.substring(0, 4), movieDuration, plotoutline, productioncompany], (err, result) => {
+			if (err) {
+				return db.rollback(() => {
+					throw err;
+				});
+			}
+
+			db.commit((err) => {
+				if (err) {
+					return db.rollback(() => {
+						throw err;
+					});
+				}
+
+				res.redirect('/index.html');
+			});
+		});
+	});
+});
+
 app.listen(5000, () => {
   	console.log("Server running at http://localhost:5000");
 });
