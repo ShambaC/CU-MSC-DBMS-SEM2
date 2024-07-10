@@ -5,3 +5,18 @@ $(document).ready(function() {
       },
   });
 });
+
+function addProductionOptions() {
+  fetch('/productions')
+      .then(res => res.json())
+      .then(data => {
+          const selectOpt = document.getElementById('productioncompany');
+          
+          data.forEach(element => {
+              const optText = `<option value="${element.pName}">${element.pName}</option>`;
+              selectOpt.innerHTML += optText;
+          });
+      });
+}
+
+addProductionOptions();

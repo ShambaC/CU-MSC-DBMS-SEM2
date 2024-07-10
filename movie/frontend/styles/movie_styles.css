@@ -50,11 +50,3 @@ body {
   .btn-next:hover {
     background-color: rgb(131, 75, 235);
   }
-
-  .conditional-inputs {
-    display: none;
-  }
-
-.conditional-inputs.active {
-  display: block;
-}

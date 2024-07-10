@@ -14,3 +14,18 @@ function toggleQuoteInput() {
 }
 
 quoteCheck.addEventListener('change', toggleQuoteInput);
+
+function addMovieOptions() {
+    fetch('/movies')
+        .then(res => res.json())
+        .then(data => {
+            const selectOpt = document.getElementById('acted_by');
+            
+            data.forEach(element => {
+                const optText = `<option value="${element.title + "_" + element.year}">${element.title + "(" + element.year + ")"}</option>`;
+                selectOpt.innerHTML += optText;
+            });
+        });
+}
+
+addMovieOptions();
