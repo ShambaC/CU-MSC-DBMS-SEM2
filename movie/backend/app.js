@@ -72,54 +72,38 @@ app.post('/insertMovie', urlencodedParser, (req, res) => {
 				});
 			}
 
+			var genreQuery = "";
 			if (Array.isArray(genre)) {
-				const genreQuery = "insert into movie_genre (title, year, genreName) values ";
+				genreQuery = "insert into movie_genre (title, year, genreName) values ";
 				genre.forEach((type, index, array) => {
-					genreQuery += `(${movieName}, ${year}, ${type})`;
+					genreQuery += `("${movieName}", "${year}", "${type}")`;
 					
 					if (index !== array.length - 1) {
 						genreQuery += ",";
 					}
 				});
-
-				db.query(genreQuery, [], (err, result) => {
-					if (err) {
-						return db.rollback(() => {
-							throw err;
-						});
-					}
-
-					db.commit((err) => {
-						if (err) {
-							return db.rollback(() => {
-								throw err;
-							});
-						}
-		
-						res.redirect('/index.html');
-					});
-				});
 			}
 			else {
-				const genreQuery = "insert into movie_genre values (?, ?, ?)"
-				db.query(genreQuery, [movieName, year, genre], (err, result) => {
+				genreQuery = `insert into movie_genre values ("${movieName}", "${year}", "${genre}")`
+			}
+			
+			db.query(genreQuery, [], (err, result) => {
+				if (err) {
+					return db.rollback(() => {
+						throw err;
+					});
+				}
+
+				db.commit((err) => {
 					if (err) {
 						return db.rollback(() => {
 							throw err;
 						});
 					}
-
-					db.commit((err) => {
-						if (err) {
-							return db.rollback(() => {
-								throw err;
-							});
-						}
-		
-						res.redirect('/index.html');
-					});
+	
+					res.redirect('/index.html');
 				});
-			}
+			});
 			
 		});
 	});
