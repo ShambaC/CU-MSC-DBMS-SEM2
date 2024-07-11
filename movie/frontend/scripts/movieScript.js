@@ -28,7 +28,7 @@ function addGenreOptions() {
 
           inner += `</select>`;
 
-          selectOpt.innerHTML = inner;
+          selectOpt.innerHTML += inner;
 
           $('select[multiple]').multiselect({
             templates: {

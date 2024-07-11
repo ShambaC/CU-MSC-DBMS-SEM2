@@ -17,8 +17,8 @@ function addMovieOptions() {
             inner1 += `</select>`;
             inner2 += `</select>`;
 
-            selectOpt.innerHTML = inner1;
-            selectOpt2.innerHTML = inner2;
+            selectOpt.innerHTML += inner1;
+            selectOpt2.innerHTML += inner2;
 
             $('select[multiple]').multiselect({
                 templates: {

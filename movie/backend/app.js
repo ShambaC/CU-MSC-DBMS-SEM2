@@ -57,35 +57,76 @@ app.post('/insertActor', urlencodedParser, (req, res) => {
     
 });
 
-app.post('/insertMovies', urlencodedParser, (req, res) => {
-
-});
-
-app.post('/insertDirector', urlencodedParser, (req, res) => {
+app.post('/insertMovie', urlencodedParser, (req, res) => {
 	const { movieName, releaseYear, movieDuration, plotoutline, productioncompany, genre } = req.body;
+	const year = releaseYear.substring(0, 4);
 
 	db.beginTransaction((err) => {
 		if (err) throw err;
 
-		const insertQueryA = "insert into movie values (?, ?, ?, ?, ?)";
-		db.query(insertQueryA, [movieName, releaseYear.substring(0, 4), movieDuration, plotoutline, productioncompany], (err, result) => {
+		const insertQueryA = "insert into movies values (?, ?, ?, ?, ?)";
+		db.query(insertQueryA, [movieName, year, movieDuration, plotoutline, productioncompany], (err, result) => {
 			if (err) {
 				return db.rollback(() => {
 					throw err;
 				});
 			}
 
-			db.commit((err) => {
-				if (err) {
-					return db.rollback(() => {
-						throw err;
-					});
-				}
+			if (Array.isArray(genre)) {
+				const genreQuery = "insert into movie_genre (title, year, genreName) values ";
+				genre.forEach((type, index, array) => {
+					genreQuery += `(${movieName}, ${year}, ${type})`;
+					
+					if (index !== array.length - 1) {
+						genreQuery += ",";
+					}
+				});
 
-				res.redirect('/index.html');
-			});
+				db.query(genreQuery, [], (err, result) => {
+					if (err) {
+						return db.rollback(() => {
+							throw err;
+						});
+					}
+
+					db.commit((err) => {
+						if (err) {
+							return db.rollback(() => {
+								throw err;
+							});
+						}
+		
+						res.redirect('/index.html');
+					});
+				});
+			}
+			else {
+				const genreQuery = "insert into movie_genre values (?, ?, ?)"
+				db.query(genreQuery, [movieName, year, genre], (err, result) => {
+					if (err) {
+						return db.rollback(() => {
+							throw err;
+						});
+					}
+
+					db.commit((err) => {
+						if (err) {
+							return db.rollback(() => {
+								throw err;
+							});
+						}
+		
+						res.redirect('/index.html');
+					});
+				});
+			}
+			
 		});
 	});
+});
+
+app.post('/insertDirector', urlencodedParser, (req, res) => {
+	
 });
 
 app.listen(5000, () => {
