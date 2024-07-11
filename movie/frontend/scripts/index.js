@@ -1,5 +1,3 @@
-
-
 function checkMovies() {
     const actorBtn = document.getElementById("actor-btn");
     const directorBtn = document.getElementById("director-btn");

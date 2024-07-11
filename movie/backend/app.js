@@ -86,7 +86,7 @@ app.post('/insertMovie', urlencodedParser, (req, res) => {
 			else {
 				genreQuery = `insert into movie_genre values ("${movieName}", "${year}", "${genre}")`
 			}
-			
+
 			db.query(genreQuery, [], (err, result) => {
 				if (err) {
 					return db.rollback(() => {
@@ -110,7 +110,43 @@ app.post('/insertMovie', urlencodedParser, (req, res) => {
 });
 
 app.post('/insertDirector', urlencodedParser, (req, res) => {
-	
+	const { dName, dDOB, directedMovies } = req.body;
+
+	db.beginTransaction((err) => {
+		if (err)	throw err;
+
+		const directorQuery = "insert into director values (?, ?)";
+		db.query(directorQuery, [dName, dDOB], (err, result) => {
+			if (err) {
+				return db.rollback(() => {
+					throw err;
+				});
+			}
+
+			// Movie parsing
+			const movieName = directedMovies.split("_")[0];
+			const year = directedMovies.split("_")[1];
+
+			const directedQuery = "insert into directed_by values (?, ?, ?, ?)";
+			db.query(directedQuery, [movieName, year, dName, dDOB], (err, result) => {
+				if (err) {
+					return db.rollback(() => {
+						throw err;
+					});
+				}
+
+				db.commit((err) => {
+					if (err) {
+						return db.rollback(() => {
+							throw err;
+						});
+					}
+
+					res.redirect('/index.html');
+				});
+			});
+		});
+	});
 });
 
 app.listen(5000, () => {
