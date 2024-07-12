@@ -42,7 +42,7 @@ function addMovieOptions() {
                         selectedMovies.push(movieName);
                     } else {
                         removeQuoteTextBox(option.text());
-                        removeRolesTextBox(movieName);
+                        removeRolesTextBox(option.text());
                         selectedMovies = selectedMovies.filter(movie => movie !== option.text());
                     }
                 }
@@ -53,6 +53,7 @@ function addMovieOptions() {
 function addQuoteTextBox(movieName) {
     const quoteContainer = document.getElementById('quoteInput');
     const quoteBox = document.createElement('div');
+
     quoteBox.className = 'quote-box';
     quoteBox.innerHTML = `
         <label for="quote_${movieName}">${movieName} Quote:</label>
@@ -64,7 +65,11 @@ function addQuoteTextBox(movieName) {
 
 function removeQuoteTextBox(movieName) {
     const quoteContainer = document.getElementById('quoteInput');
-    const quoteBox = quoteContainer.querySelector(`[id="quote_${movieName}"]`).closest('.quote-box');
+    var quoteBox = quoteContainer.querySelector(`[id="quote_${movieName}"]`)
+    if (quoteBox) {
+        quoteBox = quoteBox.closest('.quote-box');
+    }
+
     if (quoteContainer.children.length === 0) {
         quoteContainer.style.display = 'none'; 
     }
@@ -88,7 +93,11 @@ function addRolesTextBox(movieName) {
 
 function removeRolesTextBox(movieName) {
     const roleContainer = document.getElementById("rolesInput");
-    const roleBox = roleContainer.querySelector(`[id="role_${movieName}"]`).closest('.role-box');
+    var roleBox = roleContainer.querySelector(`[id="role_${movieName}"]`)
+
+    if (roleBox) {
+        roleBox = roleBox.closest('.role-box');
+    }
 
     if (roleContainer.children.length === 0) {
         roleContainer.style.display = 'none';
