@@ -26,6 +26,10 @@ option, label, input{
     font-weight: 650;
 }
 
+label {
+    -webkit-text-stroke: 0.01rem black;
+}
+
 .submit-reset{
     display: flex;
     justify-content: space-evenly;

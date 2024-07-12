@@ -1,4 +1,3 @@
-const quoteInput = document.getElementById('quoteInput');
 const maxMovies = 3;
 
 let selectedMovies = [];
@@ -37,10 +36,13 @@ function addMovieOptions() {
                         if (hasQuote) {
                             addQuoteTextBox(movieName);
                         }
+
+                        addRolesTextBox(movieName);
                         
                         selectedMovies.push(movieName);
                     } else {
                         removeQuoteTextBox(option.text());
+                        removeRolesTextBox(movieName);
                         selectedMovies = selectedMovies.filter(movie => movie !== option.text());
                     }
                 }
@@ -56,18 +58,43 @@ function addQuoteTextBox(movieName) {
         <label for="quote_${movieName}">${movieName} Quote:</label>
         <textarea id="quote_${movieName}" name="quote_${movieName}" rows="3" class="form-control"></textarea>
     `;
-    quoteInput.style.display = 'block';
+    quoteContainer.style.display = 'block';
     quoteContainer.appendChild(quoteBox);
 }
 
 function removeQuoteTextBox(movieName) {
     const quoteContainer = document.getElementById('quoteInput');
     const quoteBox = quoteContainer.querySelector(`[id="quote_${movieName}"]`).closest('.quote-box');
-    if (quoteInput.children.length === 0) {
-        quoteInput.style.display = 'none'; 
+    if (quoteContainer.children.length === 0) {
+        quoteContainer.style.display = 'none'; 
     }
     if (quoteBox) {
         quoteContainer.removeChild(quoteBox);
+    }
+}
+
+function addRolesTextBox(movieName) {
+    const roleContainer = document.getElementById("rolesInput");
+    const roleBox = document.createElement('div');
+
+    roleBox.className = 'role-box';
+    roleBox.innerHTML = `
+        <label for="role_${movieName}">${movieName} Role: </label>
+        <input type="text" class="form-control" name="role_${movieName}" id="role_${movieName}" placeholder="Enter role" maxlength="10">
+    `
+    roleContainer.style.display = 'block';
+    roleContainer.append(roleBox);
+}
+
+function removeRolesTextBox(movieName) {
+    const roleContainer = document.getElementById("rolesInput");
+    const roleBox = roleContainer.querySelector(`[id="role_${movieName}"]`).closest('.role-box');
+
+    if (roleContainer.children.length === 0) {
+        roleContainer.style.display = 'none';
+    }
+    if (roleBox) {
+        roleContainer.removeChild(roleBox);
     }
 }
 
