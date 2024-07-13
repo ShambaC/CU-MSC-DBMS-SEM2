@@ -43,8 +43,6 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
     <script>
-        console.log(document.referrer);
-
         if (document.referrer !== null && document.referrer.length !== 0) {
             const toastLive = document.getElementById("liveToast");
             const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLive)
