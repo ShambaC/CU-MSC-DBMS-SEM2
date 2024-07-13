@@ -15,6 +15,91 @@ var jsonParser = bodyParser.json();
 // Routes
 //---------------------------
 
+/**
+ * Route to get all actors data
+ * No request query required
+ */
+router.get('/', (req, res) => {
+	const actorQuery = "select * from actor";
+
+	db.query(actorQuery, [], (err, result) => {
+		if (err)	throw err;
+
+		if (result.length === 0) {
+			res.sendStatus(404);
+		}
+		else {
+			res.status(200).json(result);
+		}
+	});
+});
+
+/**
+ * Route to get information for one movie
+ * Request query should have the following fields
+ * -actorName : name of the actor
+ * -aDOB 	  : DOB of the actor
+ * 
+ * How to create a query string and send fetch request ?
+ * 
+ * const params = new URLSearchParams({
+ * 		actorName: "value1",
+ * 		aDOB: "value2",
+ * });
+ * const queryString = params.toString();
+ * 
+ * // Then call fetch with the created string
+ * fetch(`/actors/getMovies?${queryString}`) ....
+ * 
+ * This will return a JSON with the required data
+ */
+router.get('/getMovies', (req, res) => {
+	const aName = req.query.actorName;
+	const aDOB = req.query.aDOB;
+
+	const actorQuery = `select title, year, role from acted_by where aName="${aName}" and aDOB="${aDOB}"`;
+	db.query(actorQuery, [], (err, result) => {
+		if (err) throw err;
+
+		if (result.length === 0) {
+			res.sendStatus(404);
+		}
+		else {
+			res.status(200).json(result);
+		}
+	});
+});
+
+/**
+ * Route for getting actor quotes for a particular movie
+ * Send following fields as query
+ * -actorName 	: name of the actor
+ * -aDOB 	  	: DOB of the actor
+ * -movieName 	: title of the movie
+ * -year		: year of the movie release
+ */
+router.get('/getQuotes', (req, res) => {
+	const aName = req.query.actorName;
+	const aDOB = req.query.aDOB;
+	const movieName = req.query.movieName;
+	const year = req.query.year;
+
+	const quoteQuery = `select qText from quote where aName="${aName}" and aDOB="${aDOB}" and title="${movieName}" and year=${year}`;
+	db.query(quoteQuery, [], (err, result) => {
+		if (err) throw err;
+
+		if (result.length === 0) {
+			res.sendStatus(404);
+		}
+		else {
+			res.status(200).json(result);
+		}
+	});
+});
+
+/**
+ * Route to add actor data to database
+ */
 router.post('/insertActor', urlencodedParser, (req, res) => {
 	const { aName, aDOB, acted_by } = req.body;
 

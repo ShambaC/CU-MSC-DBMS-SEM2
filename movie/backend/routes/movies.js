@@ -67,10 +67,75 @@ router.get('/getOne', (req, res) => {
 		else {
 			res.status(200).json(result);
 		}
-	})
+	});
 });
 
+/**
+ * Route for getting movie director
+ * send request with a query similar to /getOne route above
+ */
+router.get('/getDirector', (req, res) => {
+	const movieName = req.query.movieName;
+	const year = req.query.year;
 
+	const movieQuery = `select dName, dDOB from directed_by where title="${movieName}" and year=${year}`;
+	db.query(movieQuery, [], (err, result) => {
+		if (err) throw err;
+
+		if (result.length === 0) {
+			res.sendStatus(404);
+		}
+		else {
+			res.status(200).json(result);
+		}
+	});
+});
+
+/**
+ * Route for getting movie genres
+ * send request with a query similar to /getOne route above
+ */
+router.get('/getGenres', (req, res) => {
+	const movieName = req.query.movieName;
+	const year = req.query.year;
+
+	const movieQuery = `select genreName from movie_genre where title="${movieName}" and year=${year}`;
+	db.query(movieQuery, [], (err, result) => {
+		if (err) throw err;
+
+		if (result.length === 0) {
+			res.sendStatus(404);
+		}
+		else {
+			res.status(200).json(result);
+		}
+	});
+});
+
+/**
+ * Route for getting movie actors
+ * send request with a query similar to /getOne route above
+ */
+router.get('/getActors', (req, res) => {
+	const movieName = req.query.movieName;
+	const year = req.query.year;
+
+	const movieQuery = `select aName, aDOB, role from acted_by where title="${movieName}" and year=${year}`;
+	db.query(movieQuery, [], (err, result) => {
+		if (err) throw err;
+
+		if (result.length === 0) {
+			res.sendStatus(404);
+		}
+		else {
+			res.status(200).json(result);
+		}
+	});
+});
+
+/**
+ * Route to add movie data to database
+ */
 router.post('/insertMovie', urlencodedParser, (req, res) => {
 	const { movieName, releaseYear, movieDuration, plotoutline, productioncompany, genre } = req.body;
 	const year = releaseYear.substring(0, 4);
