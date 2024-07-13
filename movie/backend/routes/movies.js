@@ -15,8 +15,12 @@ var jsonParser = bodyParser.json();
 // Routes
 //---------------------------
 
+/**
+ * No request body required
+ * Sends all movies and data in the movie table
+ */
 router.get('/', (req, res) => {
-	const movieQuery = "select title, year from movies";
+	const movieQuery = "select * from movies";
 
 	db.query(movieQuery, [], (err, result) => {
 		if (err)	throw err;
@@ -29,6 +33,43 @@ router.get('/', (req, res) => {
 		}
 	});
 });
+
+/**
+ * Route to get information for one movie
+ * Request query should have the following fields
+ * -movieName : title of the movie
+ * -year 	  : release year of the movie
+ * 
+ * How to create a query string and send fetch request ?
+ * 
+ * const params = new URLSearchParams({
+ * 		movieName: "value1",
+ * 		year: "value2",
+ * });
+ * const queryString = params.toString();
+ * 
+ * // Then call fetch with the created string
+ * fetch(`/movies/getOne?${queryString}`) ....
+ * 
+ * This will return a JSON with the required data
+ */
+router.get('/getOne', (req, res) => {
+	const movieName = req.query.movieName;
+	const year = req.query.year;
+
+	const movieQuery = `select * from movies where title="${movieName}" and year=${year}`;
+	db.query(movieQuery, [], (err, result) => {
+		if (err) throw err;
+
+		if (result.length === 0) {
+			res.sendStatus(404);
+		}
+		else {
+			res.status(200).json(result);
+		}
+	})
+});
+
 
 router.post('/insertMovie', urlencodedParser, (req, res) => {
 	const { movieName, releaseYear, movieDuration, plotoutline, productioncompany, genre } = req.body;
