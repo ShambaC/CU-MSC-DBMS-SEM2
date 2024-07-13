@@ -85,7 +85,7 @@ function addRolesTextBox(movieName) {
     roleBox.className = 'role-box';
     roleBox.innerHTML = `
         <label for="role_${movieName}">${movieName} Role: </label>
-        <input type="text" class="form-control" name="role_${movieName}" id="role_${movieName}" placeholder="Enter role" maxlength="10">
+        <input type="text" class="form-control" name="role_${movieName}" id="role_${movieName}" placeholder="Enter role" maxlength="10" required>
     `
     roleContainer.style.display = 'block';
     roleContainer.append(roleBox);
