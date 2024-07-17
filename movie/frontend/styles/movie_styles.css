@@ -1,8 +1,4 @@
 body {
-    background-image: url('../assets/actorBg.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
     padding: 5.5%;
     height: 70vh;
     background-image: url(../assets/actorBg.jpg);
