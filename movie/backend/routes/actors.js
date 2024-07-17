@@ -218,7 +218,7 @@ router.post('/insertActor', urlencodedParser, (req, res) => {
 							});
 						}
 		
-						res.redirect('/index.html');
+						res.redirect('/main_index.html');
 					});
 				}
 			});

@@ -30,6 +30,10 @@
         </div>
     </main>
 
+    <div class="back-btn">
+        <a class="btn btn-outline-dark" href="index.html">Go Back</a>
+    </div>
+
     <div class="toast-container position-fixed bottom-0 end-0 p-3">
         <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-header">
@@ -47,8 +51,10 @@
     <script>
         const splitString = document.referrer.split("/");
         const lastPage = splitString[splitString.length - 1];
+        console.log(splitString);
+        console.log(lastPage);
 
-        if (document.referrer !== null && document.referrer.length !== 0 && lastPage.length != 0) {
+        if (document.referrer !== null && document.referrer.length !== 0 && (lastPage == "movie_input.html" || lastPage == "actor_input.html" || lastPage == "director_input.html")) {
             const toastLive = document.getElementById("liveToast");
             const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLive)
 

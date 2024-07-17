@@ -107,7 +107,7 @@ router.post('/insertDirector', urlencodedParser, (req, res) => {
 						});
 					}
 
-					res.redirect('/index.html');
+					res.redirect('/main_index.html');
 				});
 			});
 		});
