@@ -38,7 +38,7 @@ router.get('/1', (req, res) => {
     const year_l = req.query.year_l;
     const year_u = req.query.year_u;
 
-    const movieQuery = `select m.title, m.year, m.duration, m.plot_outline, m.pName, g.genreName from movies m, movie_genre g where	m.title = g.title and m.year = g.year and m.year > ${year_l} and m.year < ${year_u} order by m.year, g.genreName;`;
+    const movieQuery = `select m.title, m.year, m.duration, m.plot_outline, m.pName, d.dName ,g.genreName from movies m, movie_genre g, directed_by d where	m.title = g.title and m.year = g.year and m.title = d.title and m.year = d.year and m.year > ${year_l} and m.year < ${year_u} order by m.year, g.genreName;`;
     db.query(movieQuery, [], (err, result) => {
         if (err) throw err;
 
