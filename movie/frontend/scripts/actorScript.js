@@ -2,7 +2,11 @@ const maxMovies = 3;
 
 let selectedMovies = [];
 
+/**
+ * This method fetches existing movies from the database and adds them as options to the input form.
+ */
 function addMovieOptions() {
+    // Fetch data
     fetch('/movies')
         .then(res => res.json())
         .then(data => {
@@ -18,11 +22,13 @@ function addMovieOptions() {
             inner += `</select>`;
             selectOpt.innerHTML += inner;
 
+            // jQuery for creating the multiselect using bootstrap
             $('select[multiple]').multiselect({
                 templates: {
                     button: '<button type="button" class="multiselect dropdown-toggle btn btn-outline-light" data-bs-toggle="dropdown" aria-expanded="false"><span class="multiselect-selected-text"></span></button>',
                 },
 
+                // Add quotes and roles when a movie is selected
                 onChange: (option, checked) => {
                     if (checked) {
                         if (selectedMovies.length >= maxMovies) {
