@@ -1,16 +1,15 @@
 body {
-    background-image: url('../assets/movie.jpg');
+    background-image: url('../assets/actorBg.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
-    font-size: 18px;
-    color: rgb(8, 88, 1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+    padding: 5.5%;
+    height: 70vh;
+    background-image: url(../assets/actorBg.jpg);
+    background-repeat: no-repeat;
+    font-family: "Baskervville SC", serif;
+    font-size: large;
+    color: white;
 }
 
 .form-group {

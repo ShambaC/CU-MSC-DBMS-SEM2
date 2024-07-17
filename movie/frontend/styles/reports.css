@@ -1,0 +1,66 @@
+body {
+    background-image: url('../assets/view1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: rgb(243, 137, 51);
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center;
+}
+
+.report-section {
+    color: purple;
+    font-size: 16px;
+    font-style: oblique;
+    font-display: bold;
+    margin-bottom: 5px;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-size:16px;
+}
+
+button{
+    color: purple;
+    padding: 10px 20px;
+    border: 1px solid black;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    margin: auto;
+}
+
+button:hover{
+    background-color:lightpink;
+}
+
+
+.table-bordered {
+    border: 1px solid #dee2e6; /* Border color */
+}
+
+.table-bordered th,
+.table-bordered td {
+    border: 1.5px solid #dee2e6; /* Border color */
+    padding: 8px; /* Padding inside cells */
+    text-align: left; /* Text alignment */
+}

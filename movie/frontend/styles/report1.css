@@ -1,0 +1,49 @@
+body {
+    background-color: lightsalmon;
+    font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: rgb(101, 183, 250);
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center;
+}
+
+.report-section {
+    color: brown;
+    font-size: medium;
+    font-style: oblique;
+    font-display: bold;
+    margin-bottom: 5px;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+button{
+    color: purple;
+    padding: 10px 20px;
+    border: 1px solid black;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    margin: auto;
+    
+
+}
