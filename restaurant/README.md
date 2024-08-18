@@ -10,6 +10,7 @@ erDiagram
     CATALOG {
         string food PK
         int price
+        string type "food or breverage"
     }
     ORDER {
         string order_id PK
@@ -17,6 +18,7 @@ erDiagram
         date order_date
         int order_value
         string cust_name
+        string code
         string delivery_boy_name
     }
     "ORDER FOODS" {
