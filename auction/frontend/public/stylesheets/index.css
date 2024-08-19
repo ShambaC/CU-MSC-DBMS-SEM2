@@ -1,0 +1,37 @@
+html, body {
+    margin: 0;
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+header {
+    text-align: center;
+    background-color: #e38a4f;
+    font-size: 1.5rem;
+    
+    padding: 2.5rem;
+}
+
+body {
+    background-color: #a1633a;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    
+    padding-top: 40vh;
+}
+
+.link-btn {
+    text-decoration: none;
+    color: black;
+    background-color: whitesmoke;
+
+    padding: 0.4rem 0.7rem;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+}

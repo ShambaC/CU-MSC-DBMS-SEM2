@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="public/stylesheets/seller.css">
+
+    <title>ADD SELLER</title>
+</head>
+<body>
+    <header>
+        AUCTION HOUSE
+    </header>
+    <main>
+        <form action="/seller/add-seller" method="post">
+            <label for="seller-id">Seller ID:</label>
+            <input type="text" name="sellerId" id="seller-id" readonly>
+            <label for="acc-no">Account no.:</label>
+            <input type="text" name="accNo" id="acc-no" maxlength="16">
+            <button type="submit" id="submit-btn">Submit</button>
+        </form>
+    </main>
+
+    <script src="public/scripts/seller.js" type="module"></script>
+</body>
+</html>
