@@ -8,11 +8,11 @@ Delivered order details within a specifie area. The report should contain the at
 ```mermaid
 erDiagram
     CATALOG {
-        string food PK
+        string name PK
         int price
         string type "food or breverage"
     }
-    ORDER {
+    "ORDER DETAILS" {
         string order_id PK
         string order_pos
         date order_date
@@ -23,19 +23,15 @@ erDiagram
     }
     "ORDER FOODS" {
         string order_id
-        string food
+        string name
         int price
     }
-    "AREA CODE" {
+    "DELIVERY" {
+        string name
         string code PK
     }
-    "DELIVERY BOY" {
-        string name PK
-        string code FK
-    }
-    "AREA CODE" ||--|{ "DELIVERY BOY" : "delivered by"
-    ORDER }|--|| "DELIVERY BOY" : "delivered by"
-    "ORDER FOODS" ||--|| ORDER : in
+    "ORDER DETAILS" }|--|| "DELIVERY" : "delivered by"
+    "ORDER FOODS" ||--|| "ORDER DETAILS" : in
     CATALOG ||--|{ "ORDER FOODS" : has
 ```
 <i>ORDER FOODS has total participation in "has" relation to CATALOG but CATALOG has partial paricipation to the same relation.</i>

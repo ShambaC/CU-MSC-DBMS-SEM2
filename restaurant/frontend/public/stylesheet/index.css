@@ -1,0 +1,96 @@
+html, body {
+    margin: 0;
+    background-color: #bfadcc;
+
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+}
+
+header {
+    background-color: #dfbbda;
+
+    margin: 0;
+    padding: 0.3em;
+
+    font-family: "Lobster", sans-serif;
+    font-size: 4rem;
+    color: #896790;
+    -webkit-text-stroke: black 0.05rem;
+
+    text-align: center;
+}
+
+main {
+    margin: 0px auto;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#menu {
+    height: 100vh;
+    width: 50%;
+    overflow: scroll;
+
+    display: flex;
+    flex-direction: column;
+
+    border-right: 2px solid black;
+}
+.menu-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    margin: 0.5rem 0.5rem;
+    padding: 0.5rem 0.5rem;
+}
+.menu-item > img {
+    width: 10em;
+}
+.food-details {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+#name-price {
+    margin-bottom: 1rem;
+}
+.add-cart-btn {
+    font-size: 1.2rem;
+    color: whitesmoke;
+    background-color: #ad4f3e;
+
+    padding: 0.2rem 0.6rem;
+
+    border-style: none;
+    border-radius: 10px;
+
+    cursor: pointer;
+}
+
+form {
+    margin: 2rem 10rem;
+
+    height: 100vh;
+    width: 50%;
+    overflow: scroll;
+
+    display: flex;
+    flex-direction: column;
+}
+
+input, select {
+    padding: 0.2rem 0.4rem;
+    margin: 0.2rem 0;
+
+    border-style: none;
+    border-radius: 0.3rem;
+}
+
+#order-items {
+    display: flex;
+    flex-direction: column;
+}

@@ -1,0 +1,57 @@
+html, body {
+    margin: 0;
+    background-color: #bfadcc;
+}
+
+header {
+    background-color: #dfbbda;
+
+    margin: 0;
+    padding: 0.3em;
+
+    font-family: "Lobster", sans-serif;
+    font-size: 4rem;
+    color: #896790;
+    -webkit-text-stroke: black 0.05rem;
+
+    text-align: center;
+}
+
+form {
+    margin: 0px 15rem;
+
+    display: flex;
+    flex-direction: column;
+
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 1.25rem;
+}
+
+input, select {
+    padding: 0.4rem 0.6rem;
+    margin: 0.2rem 0;
+
+    border-style: none;
+    border-radius: 0.3rem;
+
+    font-size: 1.1rem;
+}
+
+label {
+    margin: 0.4rem 0;
+}
+
+#submit-btn {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 1.25rem;
+
+    padding: 0.5rem 0;
+    margin: 0.6rem 10rem;
+
+    border-style: none;
+    border-radius: 8px;
+
+    cursor: pointer;
+}

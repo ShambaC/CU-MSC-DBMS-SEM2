@@ -133,3 +133,4 @@
 */*.pdf
 */*.docx
 /WEB/BackEnd/node_modules
+*/backend/node_modules
