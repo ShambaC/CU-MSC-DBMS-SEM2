@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="public/stylesheet/index.css">
+
+    <title>HISTORY FORM</title>
+</head>
+
+<body>
+    <header>
+        CLINIC SUPER
+    </header>
+    <main>
+        <form action="/history/add" method="post">
+            <label for="dID">Doctor ID:</label>
+            <select name="dID" id="dID"></select>
+            <label for="pID">patient ID:</label>
+            <select name="pID" id="pID"></select>
+            <label for="visitDate">Visit Date: </label>
+            <select name="visitDate" id="visitDate"></select>
+            <label for="symptoms">Symptomps:</label>
+            <textarea name="symptoms" id="symptoms" rows="5"></textarea>
+            <label for="diagnosis">Diagnosis:</label>
+            <textarea name="diagnosis" id="diagnosis" rows="5"></textarea>
+            <label for="meds">Medicines Prescribed:</label>
+            <textarea name="meds" id="meds" rows="5"></textarea>
+            <label for="onClinic">Medicines from clinic: </label>
+            <div>
+                <input type="radio" name="onClinic" id="onClinicYes" value="1">
+                <label for="onClinicYes">Yes</label>
+                <input type="radio" name="onClinic" id="onClinicNo" value="0">
+                <label for="onClinicNo">No</label>
+            </div>
+
+            <button type="submit" id="submit-btn">Submit</button>
+        </form>
+    </main>
+
+    <script src="public/script/index.js" type="module"></script>
+</body>
+
+</html>
