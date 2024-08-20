@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="public/stylesheets/item.css">
+
+    <title>ADD ITEM</title>
+</head>
+<body>
+    <header>
+        AUCTION HOUSE
+    </header>
+    <main>
+        <form action="/seller/add-seller" method="post">
+            <label for="item-id">Item ID:</label>
+            <input type="text" name="itemId" id="item-id" readonly>
+            <label for="seller-id">Seller ID:</label>
+            <select name="sellerId" id="seller-id"></select>
+            <label for="item-title">Title:</label>
+            <input type="text" name="itemTitle" id="item-title" maxlength="20">
+            
+
+            <button type="submit" id="submit-btn">Submit</button>
+        </form>
+    </main>
+
+    <script src="public/scripts/item.js" type="module"></script>
+</body>
+</html>
